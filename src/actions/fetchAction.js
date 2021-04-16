@@ -8,3 +8,10 @@ export const fetchMovies = (url) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const clearArr = (arr) => {
+  return {
+    type: "CLEAR",
+    payload: arr
+  };
+};

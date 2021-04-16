@@ -7,14 +7,23 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { Grow } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
     width: 305,
-    margin: "5px"
+    margin: "8px"
   },
   media: {
-    height: 400
+    height: 450
+  },
+  title: {
+    color: "white",
+    position: "absolute",
+    bottom: 10,
+    left: 20,
+    top: "auto",
+    fontFamily: "Trebuchet MS"
   }
 });
 
@@ -24,30 +33,38 @@ const MovieCard = ({
   original_language,
   release_date,
   original_name,
-  first_air_date
+  first_air_date,
+  checked
 }) => {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root} spacing="5">
-      <CardActionArea>
-        <CardMedia
-          width="100%"
-          className={classes.media}
-          image={`https://image.tmdb.org/t/p/w500${poster_path}`}
-          title={original_title}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {original_title || original_name} ({original_language})
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            <strong>{release_date ? "Release:" : "From:"}</strong>{" "}
-            {release_date || first_air_date}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <Grow
+      in={checked}
+      style={{ transformOrigin: "0 0 0" }}
+      {...(checked ? { timeout: 1000 } : {})}
+    >
+      <Card className={classes.root} spacing="5">
+        <CardActionArea>
+          <CardMedia
+            width="100%"
+            className={classes.media}
+            image={`https://image.tmdb.org/t/p/w500${poster_path}`}
+            title={original_title}
+          >
+            <div className={classes.title}>
+              <Typography variant="h4">
+                {original_title || original_name} ({original_language})
+              </Typography>
+              <Typography variant="h5">
+                <strong>{release_date ? "Release:" : "From:"}</strong>{" "}
+                {release_date || first_air_date}
+              </Typography>
+            </div>
+          </CardMedia>
+        </CardActionArea>
+      </Card>
+    </Grow>
   );
 };
 

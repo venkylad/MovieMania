@@ -6,6 +6,8 @@ import thunk from "redux-thunk";
 import {BrowserRouter as Router} from 'react-router-dom'
 import App from "./App";
 import { rootReducer } from "./reducers/rootReducer";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const store = createStore(
   rootReducer,
