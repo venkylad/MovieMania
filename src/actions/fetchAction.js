@@ -8,12 +8,3 @@ export const fetchMovies = (url) => async (dispatch) => {
     console.log(error);
   }
 };
-
-export const fetchTV = (url) => async (dispatch) => {
-  try {
-    const { data } = axios.get(url);
-    dispatch({ type: "FETCH_TV", payload: data });
-  } catch (error) {
-    console.log(error);
-  }
-};

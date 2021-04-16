@@ -5,23 +5,28 @@ import { API_KEY } from "./credentials";
 import { fetchMovies } from "./actions/fetchAction";
 import { Container } from "@material-ui/core";
 import Header from "./components/NavHeader";
+import { Switch, Route } from "react-router-dom";
+import Home from "./components/HomePage";
+import Movie from "./components/MoviePage";
+import TV from "./components/TVPage";
 
 export default function App() {
-  const data = useSelector((state) => state.movies);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(
-      fetchMovies(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
-      )
-    );
-    console.log(data);
-  }, []);
-
   return (
-    <Container maxWidth="lg">
-      <Header />
-    </Container>
+    <div className="App">
+      <Container maxWidth="xl">
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/movie">
+            <Movie />
+          </Route>
+          <Route exact path="/tv">
+            <TV />
+          </Route>
+        </Switch>
+      </Container>
+    </div>
   );
 }

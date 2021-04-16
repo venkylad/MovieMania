@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +25,7 @@ const Header = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="transparent">
+      <AppBar position="fixed" color="inherit">
         <Toolbar>
           <IconButton
             edge="start"
@@ -35,10 +36,15 @@ const Header = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Movie Marathon
+            <Link to="/">Movie Marathon</Link>
           </Typography>
-          <Button color="inherit">Movies</Button>
-          <Button color="inherit">TV Shows</Button>
+          <Button color="inherit">
+            <Link to="/movie">Movies</Link>
+          </Button>
+          <Link to="/tv">
+            {" "}
+            <Button color="inherit">TV Shows</Button>{" "}
+          </Link>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
