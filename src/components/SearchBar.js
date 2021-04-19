@@ -16,8 +16,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     width: "90%",
     margin: "20px",
-    backgroundColor: "grey",
-    color: "white"
+    backgroundColor: "wheat"
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -46,7 +45,7 @@ const CustomizedInputBase = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <Paper className={classes.root} >
+        <Paper className={classes.root}>
           <InputBase
             className={classes.input}
             placeholder="Search Movies"
