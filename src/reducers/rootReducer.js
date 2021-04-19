@@ -1,6 +1,9 @@
 import { combineReducers } from "redux";
-import { fetchMovieReducer } from "./fetchReducer";
+import { fetchMovieReducer, moviePage, topMoviePage, wishlistReducer } from "./fetchReducer";
 
 export const rootReducer = combineReducers({
-  movies: fetchMovieReducer
+  movies: fetchMovieReducer,
+  moviePage: moviePage,
+  topMoviePage: topMoviePage,
+  wishlist: wishlistReducer
 });

@@ -15,3 +15,31 @@ export const clearArr = (arr) => {
     payload: arr
   };
 };
+
+export const moviePage = (num) => {
+  return {
+    type: "MOVIE_PAGE",
+    payload: num
+  };
+};
+
+export const topMoviePage = (num) => {
+  return {
+    type: "TOP_MOVIE_PAGE",
+    payload: num
+  };
+};
+
+export const whislistMovies = (movies) => {
+  return {
+    type: "WISHlIST_MOVIE",
+    payload: movies
+  };
+};
+
+export const wishlistRemoveMovie = (id) => {
+  return {
+    type: "WISHlIST_REMOVE_MOVIE",
+    payload: id
+  };
+};

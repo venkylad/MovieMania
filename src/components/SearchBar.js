@@ -47,7 +47,7 @@ const CustomizedInputBase = () => {
         <Paper className={classes.root}>
           <InputBase
             className={classes.input}
-            placeholder="Search Movies & TV Shows"
+            placeholder="Search Movies"
             inputProps={{ "aria-label": "search google maps" }}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -61,16 +61,30 @@ const CustomizedInputBase = () => {
           </IconButton>
         </Paper>
       </form>
-      <Grid container spacing={1}>
-        <Grid container item xs={12} spacing={3}>
-          {movies.map(
-            (movie) =>
-              movie.poster_path && (
-                <MovieCard key={movie.id} checked={checked} {...movie} />
-              )
-          )}
+      {!checked && (
+        <div className="intro">
+          <h2>Searched Movies will appear here...</h2>
+          <img src="https://www.pngrepo.com/png/25245/512/search.png" alt="" />
+        </div>
+      )}
+      {movies.length === 0 ? (
+        <img
+          src="https://i.pinimg.com/originals/65/ba/48/65ba488626025cff82f091336fbf94bb.gif"
+          alt=""
+          className="loading"
+        />
+      ) : (
+        <Grid container>
+          <Grid container item>
+            {movies.map(
+              (movie) =>
+                movie.poster_path && (
+                  <MovieCard key={movie.id} checked={checked} {...movie} />
+                )
+            )}
+          </Grid>
         </Grid>
-      </Grid>
+      )}
     </>
   );
 };
