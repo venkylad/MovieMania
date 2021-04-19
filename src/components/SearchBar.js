@@ -15,7 +15,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     width: "90%",
-    margin: "20px"
+    margin: "20px",
+    backgroundColor: "grey",
+    color: "white"
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -44,7 +46,7 @@ const CustomizedInputBase = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <Paper className={classes.root}>
+        <Paper className={classes.root} >
           <InputBase
             className={classes.input}
             placeholder="Search Movies"
@@ -64,6 +66,12 @@ const CustomizedInputBase = () => {
       {!checked && (
         <div className="intro">
           <h2>Searched Movies will appear here...</h2>
+          <img src="https://www.pngrepo.com/png/25245/512/search.png" alt="" />
+        </div>
+      )}
+      {checked && movies.length === 0 && (
+        <div className="intro">
+          <h2>It seems like {query} doesn't exist</h2>
           <img src="https://www.pngrepo.com/png/25245/512/search.png" alt="" />
         </div>
       )}

@@ -3,24 +3,10 @@
   padding: 0px;
 }
 
-body {
+body a {
   /* background-color: rgb(0, 66, 110); */
   text-decoration: none;
-}
-
-a {
-  text-decoration: none;
   color: black;
-}
-
-a:hover {
-  text-decoration: none;
-  color: black;
-}
-
-a:active {
-  text-decoration: underline;
-  color: red;
 }
 
 .App {
@@ -55,6 +41,10 @@ a:active {
 
 ul {
   margin-left: 30px;
+}
+
+.navbar {
+  box-shadow: 0px 3px 15px black;
 }
 
 footer {
@@ -139,4 +129,12 @@ footer {
 
 .intro img {
   width: 120px;
+}
+
+.login_container {
+  height: 80vh;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  margin-top: 0px;
+  margin-bottom: 60px;
 }

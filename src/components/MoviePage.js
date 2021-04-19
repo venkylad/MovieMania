@@ -39,6 +39,7 @@ const Movie = () => {
         />
       ) : (
         <Grid container>
+          <h1>Recent Movies</h1>
           <Grid container item>
             {movies.map(
               (movie) =>

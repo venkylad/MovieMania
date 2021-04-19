@@ -8,51 +8,93 @@ import IconButton from "@material-ui/core/IconButton";
 import MovieCreationRoundedIcon from "@material-ui/icons/MovieCreationRounded";
 import { Link } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1
-  },
-  menuButton: {
-    marginRight: theme.spacing(1)
-  },
-  title: {
-    flexGrow: 1
-  }
-}));
+import { Nav, Navbar } from "react-bootstrap";
 
-const Header = () => {
-  const classes = useStyles();
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     flexGrow: 1
+//   },
+//   menuButton: {
+//     marginRight: theme.spacing(1)
+//   },
+//   title: {
+//     flexGrow: 1
+//   }
+// }));
 
+// const Header = ({handleLogout, login}) => {
+//   const classes = useStyles();
+
+//   return (
+//     <div className={classes.root}>
+//       <AppBar position="fixed" color="inherit">
+//         <Toolbar>
+// <IconButton
+//   edge="start"
+//   className={classes.menuButton}
+//   color="inherit"
+//   aria-label="menu"
+// >
+//   <MovieCreationRoundedIcon />
+// </IconButton>
+//           <Typography variant="h6" className={classes.title}>
+//             <Link to="/">Movie Marathon</Link>
+//           </Typography>
+//           <Button color="inherit">
+//             <Link to="/movie">Movies</Link>
+//           </Button>
+//           <Link to="/tv">
+//             {" "}
+//             <Button color="inherit">Top Movies</Button>{" "}
+//           </Link>
+//           <Button color="inherit">
+//             <Link to="/wishlist">Wishlist</Link>
+//           </Button>
+
+// <Button color="inherit" onClick={handleLogout}>{login ? "Log Out" : "Login"}</Button>
+
+//         </Toolbar>
+//       </AppBar>
+//     </div>
+//   );
+// };
+
+// export default Header;
+
+const NavHeader = ({ handleLogout, login }) => {
   return (
-    <div className={classes.root}>
-      <AppBar position="fixed" color="inherit">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
+    <>
+      <Navbar bg="light" expand="lg" className="navbar" fixed="top">
+        <Navbar.Brand>
+          <IconButton edge="start" color="inherit" aria-label="menu">
             <MovieCreationRoundedIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            <Link to="/">Movie Marathon</Link>
-          </Typography>
-          <Button color="inherit">
-            <Link to="/movie">Movies</Link>
-          </Button>
-          <Link to="/tv">
-            {" "}
-            <Button color="inherit">Top Movies</Button>{" "}
-          </Link>
-          <Button color="inherit">
-            <Link to="/wishlist">Wishlist</Link>
-          </Button>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-    </div>
+          <Link to="/">Movie Mania</Link>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto">
+            <Nav.Link>
+              <Link to="/movie">Movies</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/tv">Top Rated</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/wishlist">Wishlist</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <button
+                className="btn-sm btn-outline-dark"
+                onClick={handleLogout}
+              >
+                {login ? "Log Out" : "Login"}
+              </button>
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    </>
   );
 };
-
-export default Header;
+export default NavHeader;

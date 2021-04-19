@@ -40,6 +40,7 @@ const TV = () => {
         />
       ) : (
         <Grid container>
+          <h1>Top Rated Movies</h1>
           <Grid container item xs={12}>
             {movies.map(
               (movie) =>
