@@ -34,7 +34,7 @@ const ControlledCarousel = () => {
                   alt={movie.original_title}
                 />
                 <Carousel.Caption>
-                  <h5>{movie.original_title || movie.original_name}</h5>
+                  <h4>{movie.original_title || movie.original_name}</h4>
                   <p className="d-none d-lg-block">
                     {movie.overview.substring(0, 150)}
                   </p>

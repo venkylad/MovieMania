@@ -66,12 +66,14 @@ const NavHeader = ({ handleLogout, login }) => {
   return (
     <>
       <Navbar bg="light" expand="lg" className="navbar" fixed="top">
-        <Navbar.Brand href="/">
-          <IconButton edge="start" color="inherit" aria-label="menu">
-            <MovieCreationRoundedIcon />
-          </IconButton>
-          Movie Mania
-        </Navbar.Brand>
+        <LinkContainer to="/">
+          <Navbar.Brand>
+            <IconButton edge="start" color="inherit" aria-label="menu">
+              <MovieCreationRoundedIcon />
+            </IconButton>
+            Movie Mania
+          </Navbar.Brand>
+        </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
