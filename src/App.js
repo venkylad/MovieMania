@@ -11,10 +11,10 @@ import ControlledCarousel from "./components/Carousel";
 import { Button } from "@material-ui/core";
 
 export default function App() {
-  const [login, setLogin] = useState(Boolean(localStorage.getItem("logged")));
+  const [login, setLogin] = useState("false");
 
   useEffect(() => {
-    localStorage.setItem("logged", true);
+    localStorage.setItem("logged", false);
     setLogin(localStorage.getItem("logged"));
     console.log(typeof localStorage.getItem("logged"));
   }, []);
