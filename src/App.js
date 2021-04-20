@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Header from "./components/NavHeader";
 import { Switch, Route } from "react-router-dom";
@@ -11,19 +11,30 @@ import ControlledCarousel from "./components/Carousel";
 import { Button } from "@material-ui/core";
 
 export default function App() {
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(Boolean(localStorage.getItem("logged")));
+
+  useEffect(() => {
+    setLogin(localStorage.getItem("logged"));
+    console.log(typeof localStorage.getItem("logged"));
+  }, []);
 
   const handleLogin = () => {
-    setLogin(true);
+    localStorage.setItem("logged", true);
+    const loggedIn = localStorage.getItem("logged");
+    setLogin(loggedIn);
+   
   };
 
   const handleLogout = () => {
-    setLogin(false);
+    localStorage.setItem("logged", false);
+    const loggedIn = localStorage.getItem("logged");
+    setLogin(loggedIn);
+   
   };
 
   return (
     <div className="App">
-      {login === false ? (
+      {login === "false" ? (
         <Container className="login_container">
           <h1>Movie Mania</h1>
           <h2>Need to Login</h2>

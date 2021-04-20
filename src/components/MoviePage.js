@@ -38,8 +38,8 @@ const Movie = () => {
           className="loading"
         />
       ) : (
-        <Grid container>
-          <h1>Recent Movies</h1>
+        <Grid container className="card_container">
+          <h1 className="page_names">Recent Movies</h1>
           <Grid container item>
             {movies.map(
               (movie) =>

@@ -1,6 +1,7 @@
 import { Grid } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { wishlistRemoveMovie } from "../actions/fetchAction";
 import MovieCard from "./MovieCard";
 
@@ -22,12 +23,15 @@ const Wishlist = () => {
   return (
     <>
       <Grid container spacing={1}>
-        {wishlistMovies.length === 0 && (
-          <h2 style={{ textAlign: "center" }}>
-            OOPS, Your Wishlist Bucket is empty.
-          </h2>
+        {wishlistMovies.length === 0 ? (
+          <h2 className="page_names">OOPS, Your Wishlist Bucket is empty.</h2>
+        ) : (
+          <h1 className="page_names">Wish-List</h1>
         )}
         <Grid container item xs={12} spacing={3}>
+          <Link className="btn btn-outline-dark ml-3" to="/">
+            Go Back to Search
+          </Link>
           {wishlistMovies.map((movie) => (
             <MovieCard
               key={movie.id}

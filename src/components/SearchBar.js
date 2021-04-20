@@ -68,12 +68,6 @@ const CustomizedInputBase = () => {
           <img src="https://www.pngrepo.com/png/25245/512/search.png" alt="" />
         </div>
       )}
-      {checked && movies.length === 0 && (
-        <div className="intro">
-          <h2>It seems like {query} doesn't exist</h2>
-          <img src="https://www.pngrepo.com/png/25245/512/search.png" alt="" />
-        </div>
-      )}
       {movies.length === 0 ? (
         <img
           src="https://i.pinimg.com/originals/65/ba/48/65ba488626025cff82f091336fbf94bb.gif"

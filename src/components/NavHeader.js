@@ -9,6 +9,7 @@ import MovieCreationRoundedIcon from "@material-ui/icons/MovieCreationRounded";
 import { Link } from "react-router-dom";
 
 import { Nav, Navbar } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 // const useStyles = makeStyles((theme) => ({
 //   root: {
@@ -65,24 +66,24 @@ const NavHeader = ({ handleLogout, login }) => {
   return (
     <>
       <Navbar bg="light" expand="lg" className="navbar" fixed="top">
-        <Navbar.Brand>
+        <Navbar.Brand href="/">
           <IconButton edge="start" color="inherit" aria-label="menu">
             <MovieCreationRoundedIcon />
           </IconButton>
-          <Link to="/">Movie Mania</Link>
+          Movie Mania
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link>
-              <Link to="/movie">Movies</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/tv">Top Rated</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/wishlist">Wishlist</Link>
-            </Nav.Link>
+            <LinkContainer to="/movie">
+              <Nav.Link>Movies</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/tv">
+              <Nav.Link>Top Rated</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/wishlist">
+              <Nav.Link>Wishlist</Nav.Link>
+            </LinkContainer>
             <Nav.Link>
               <button
                 className="btn-sm btn-outline-dark"
