@@ -14,6 +14,7 @@ export default function App() {
   const [login, setLogin] = useState(Boolean(localStorage.getItem("logged")));
 
   useEffect(() => {
+    localStorage.setItem("logged", true);
     setLogin(localStorage.getItem("logged"));
     console.log(typeof localStorage.getItem("logged"));
   }, []);
@@ -22,14 +23,12 @@ export default function App() {
     localStorage.setItem("logged", true);
     const loggedIn = localStorage.getItem("logged");
     setLogin(loggedIn);
-   
   };
 
   const handleLogout = () => {
     localStorage.setItem("logged", false);
     const loggedIn = localStorage.getItem("logged");
     setLogin(loggedIn);
-   
   };
 
   return (
