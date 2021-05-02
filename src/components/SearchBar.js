@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
@@ -37,9 +37,11 @@ const CustomizedInputBase = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(clearArr([]));
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${query}`;
-    dispatch(fetchMovies(url));
-    setChecked(true);
+    if (query === "" || query === null) {
+      const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${query}`;
+      dispatch(fetchMovies(url));
+      setChecked(true);
+    }
   };
 
   return (

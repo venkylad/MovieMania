@@ -29,7 +29,11 @@ const Wishlist = () => {
           <h1 className="page_names">Wish-List</h1>
         )}
         <Grid container item xs={12} spacing={3}>
-          <Link className="btn btn-outline-dark ml-3" to="/">
+          <Link
+            className="btn btn-outline-dark"
+            style={{ height: "50px" }}
+            to="/"
+          >
             Go Back to Search
           </Link>
           {wishlistMovies.map((movie) => (

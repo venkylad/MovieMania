@@ -11,7 +11,7 @@ import ControlledCarousel from "./components/Carousel";
 import { Button } from "@material-ui/core";
 
 export default function App() {
-  const [login, setLogin] = useState("false");
+  const [login, setLogin] = useState("true");
 
   useEffect(() => {
     localStorage.setItem("logged", false);
@@ -33,7 +33,7 @@ export default function App() {
 
   return (
     <div className="App">
-      {login === "false" ? (
+      {8 === "8" ? (
         <Container className="login_container">
           <h1>Movie Mania</h1>
           <h2>Need to Login</h2>

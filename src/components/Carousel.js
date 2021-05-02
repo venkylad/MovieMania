@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchMovies } from "../actions/fetchAction";
 import { API_KEY } from "../credentials";
 import { Link } from "react-router-dom";
+import Slider from "react-slick";
 
 const ControlledCarousel = () => {
   const [index, setIndex] = useState(0);
@@ -12,6 +13,20 @@ const ControlledCarousel = () => {
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
+  };
+
+  const settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+    fade: true,
+    speed: 500,
+    width: 100
   };
 
   useEffect(() => {
@@ -23,28 +38,24 @@ const ControlledCarousel = () => {
   }, [dispatch]);
 
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect} className="carousel">
-      {movies.slice(0, 5).map((movie) => {
-        return (
-          movie.backdrop_path && (
-            <Carousel.Item key={movie.id} className="carousel carousel_img">
-              <Link to={`/movie/${movie.id}`}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
-                  alt={movie.original_title}
-                />
-                <Carousel.Caption>
-                  <h4>{movie.original_title || movie.original_name}</h4>
-                  <p className="d-none d-lg-block">
-                    {movie.overview.substring(0, 150)}
-                  </p>
-                </Carousel.Caption>
-              </Link>
-            </Carousel.Item>
-          )
-        );
-      })}
-    </Carousel>
+    <div className="text-center">
+      <Slider {...settings}>
+        {movies.slice(0, 5).map((movie) => {
+          return (
+            movie.backdrop_path && (
+              <div key={movie.id} className="carousel">
+                <Link to={`/movie/${movie.id}`}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+                    alt={movie.original_title}
+                  />
+                </Link>
+              </div>
+            )
+          );
+        })}
+      </Slider>
+    </div>
   );
 };
 
